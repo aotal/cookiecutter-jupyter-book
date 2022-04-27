@@ -2,7 +2,7 @@
 
 
 <p align="center">
-  <img src="{{cookiecutter.book_slug}}/data/img/logo.png" width="400">
+  <img src="{{cookiecutter.book_slug}}/{{cookiecutter.book_slug}}/data/img/logo.png" width="400">
 </p>
 
 Una plantilla de cookiecutter para crear un sencillo [Jupyter Book](https://jupyterbook.org/intro.html).
