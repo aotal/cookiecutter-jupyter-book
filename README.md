@@ -1,20 +1,15 @@
-# Cookiecutter Jupyter Book
+# Cookiecutter Jupyter Book Arnau
 
-![tests](https://github.com/executablebooks/cookiecutter-jupyter-book/workflows/tests/badge.svg)
-![deploy](https://github.com/executablebooks/cookiecutter-jupyter-book/workflows/deploy/badge.svg)
-[![release](https://img.shields.io/github/release/executablebooks/cookiecutter-jupyter-book.svg)](https://github.com/executablebooks/cookiecutter-jupyter-book/releases)
-[![python](https://img.shields.io/badge/python-3.7%2C%203.8-blue)]()
-[![os](https://img.shields.io/badge/OS-Ubuntu%2C%20Mac%2C%20Windows-yellow)]()
 
 <p align="center">
-  <img src="{{cookiecutter.book_slug}}/{{cookiecutter.book_slug}}/logo.png" width="400">
+  <img src="{{cookiecutter.book_slug}}/data/img/logo.png" width="400">
 </p>
 
-A cookiecutter template for creating a simple [Jupyter Book](https://jupyterbook.org/intro.html). See the rendered version of this cookiecutter template [here](https://executablebooks.github.io/cookiecutter-jupyter-book/).
+Una plantilla de cookiecutter para crear un sencillo [Jupyter Book](https://jupyterbook.org/intro.html).
 
 ## Template
 
-An example template created by this cookiecutter is shown below:
+Ejemplo del arbol de directorios del proyecto. Los ficheros necesarios se ponen dentro de la carpeta de data y a su vez los de imagen en /data/img:
 
 ```
 my_book
@@ -29,34 +24,39 @@ my_book
 │   ├── _toc.yml
 │   ├── content.md
 │   ├── intro.md
-│   ├── logo.png
 │   ├── markdown.md
 │   ├── notebooks.ipynb
-│   └── references.bib
+│   ├── references.bib
+│   ├── data
+│       ├──img
+│          ├──logo.png
+│          ├──favicon.png
+│   
 ├── README.md
 └── requirements.txt
 ```
 
 ## Usage
 
-1. Install [Cookiecutter](https://github.com/cookiecutter/cookiecutter/tree/1.7.2) if you haven't installed it yet:
+1. Instalar [Cookiecutter](https://github.com/cookiecutter/cookiecutter/tree/1.7.2) antes de crear el primer libro:
 
 ```bash
 $ pip install -U cookiecutter
 ```
+También es necesario que jupyter-book esté instalado a su vez
 
-2. Use `cookiecutter-jupyter-book` to generate a Jupyter Book template and fill out the requested information (default templating values are shown in square brackets `[]` and will be used if no other information is entered):
+2. Usar `cookiecutter-jupyter-book` para generar el libro (los valores por defecto se muestran entre corchetes `[]`):
 
 ```bash
-$ cookiecutter git@github.com:executablebooks/cookiecutter-jupyter-book.git
+$ cookiecutter https://github.com/aotal/cookiecutter-jupyter-book.git
 
 author_name [Captain Jupyter]: Tomas Beuzen
 github_or_gitlab_username [tomasbeuzen]:
 book_name [My Book]:
 book_slug [my_book]:
-book_short_description [This cookiecutter creates a simple boilerplate for a Jupyter Book.]: My first Jupyter Book!
+Breve descripción del libro [Este proyecto crea un jupyter-book simple.]: My first Jupyter Book!
 version ['0.1.0']:
-Select open_source_license:
+Seleccionar licencia:
 1 - MIT license
 2 - BSD license
 3 - ISC license
@@ -71,10 +71,10 @@ Select include_ci_files:
 Choose from 1, 2, 3 [1]:
 ```
 
-3. Install the Jupyter Book package requirements from the `requirements.txt` file (it is recommended to do this in a virtual environment, e.g., using [conda](https://docs.conda.io/en/latest/)):
+3. Instalar las librerías necesarias para el proyecto incluídas en el fichero `requirements.txt`. Se recomienda hacerlo dentro de un entorno virtual. e.g., using [conda](https://docs.conda.io/en/latest/)):
 
 ```bash
-# Optional steps to create and activate virtual environment
+# pasos para crear en entorno virtual
 $ conda create --name mybook python=3.8 -y
 $ conda activate mybook
 ```
@@ -84,41 +84,33 @@ $ cd my_book
 $ pip install -r requirements.txt
 ```
 
-4. Build the HTML render of your Jupyter Book:
+4. Compilar el libro para crear los html:
 
 ```bash
+$ cd ..
 $ jupyter-book build my_book/
 ```
 
-5. View your rendered book in `my_book/_build/html/index.html`.
+5. Chequear el libro en `my_book/_build/html/index.html`.
 
-6. Make edits to your book by adding more content, updating the table of contents in `my_book/_toc.yml`, and and/or by editing the configuration file `my_book/_config.yml`. See the [Jupyter Book documentation](https://jupyterbook.org/intro.html) for more information on customizing your book.
+6. Añadir más contenido añadiendo ficheros y actualizando el índice de contenidos en  `my_book/_toc.yml`, y/o editando el fichero de configuración `my_book/_config.yml`. Ver [Jupyter Book documentation](https://jupyterbook.org/intro.html) para más información sobre configurar el libro.
 
-7. `cookiecutter-jupyter-book` optionally comes with CI workflow files to help easily deploy your book online. A CI workflow file would have been included in your directory structure if you chose `1 - github` or `2 - gitlab` for `Select include_ci_files:` in Step 2 above. For example, if you chose `1 - github`, when ready to deploy your book online:
-   1. Make sure your book builds locally as expected (`jupyter-book build my_book/`) and that you have updated the `requirements.txt` file to include any additional packages required to build your book;
-   2. Create a new public [GitHub repository](https://github.com/new) to host your book;
-   3. Push your local book (including the `.github` hidden directory) to your GitHub repository. There are many ways to do this, for example:
+7. `cookiecutter-jupyter-book` viene preparado para publicar los archivos on-line. Un fichero de  flujo de trabajo CI (Continous integration) puede incluirse si se elige `1 - github` o `2 - gitlab` para `Select include_ci_files:` en el paso 2. por ejemplo, eligiendo `1 - github`, y cuando el libro está listo para publicarlo on-line:
+   1. Hay que asegurarse de que el libro se ha compilado bien (`jupyter-book build my_book/`) y que se han instalado las librerías necesarias incluídas en el fichero `requirements.txt` para compilar correctamente el libro;
+   2.  En necesario crear un repositorio público [GitHub repository](https://github.com/new) para alojar el libro;
+   3. "Push" la copia local del libro (incluyendo el directorio oculto `.github`) al repositorio de GitHub. Hay varias maneras de hacerlo. Un ejemplo sería:
 
       ```bash
       $ git init
       $ git add .
       $ git commit -m "first commit"
+      $ git branch -M main
       $ git remote add origin git@github.com:<user>/<repository-name>.git
       $ git push -u origin main
       ```
 
-   4. The GitHub Actions workflow provided with the cookiecutter (`my_book/.github/workflows/deploy.yml`) will automatically deploy your book to the `gh-pages` branch of your repository once pushed. It is typically available after a few minutes at `https://<user>.github.io/<myonlinebook>/`. You may need to go to the `Settings` tab of your repository and under the **GitHub Pages** heading, choose the `gh-pages branch` from the **Source** drop-down list. For alternative methods of deploying your book online, see the See the [Jupyter Book documentation](https://jupyterbook.org/intro.html).
+   4. Los comandos incluídos mediante cookiecutter (`my_book/.github/workflows/deploy.yml`) publicarán automatiamente el libro en `gh-pages`en la rama correspondiente una vez "pushed". Estará disponible en la dirección `https://<user>.github.io/<myonlinebook>/` después de unos minutos. puede ser necesario ir a `Settings` en el repositorio y bajo la cabecera **GitHub Pages** , elegir `gh-pages branch` desde la lista desplegable**Source**. para ver otros métodos de publicación consultar [Jupyter Book documentation](https://jupyterbook.org/intro.html).
 
    > Note: by default, the GitHub Actions workflow file included with this cookiecutter builds the book with Ubuntu and Python 3.8. You can modify the OS/Python version for the build in the `.github/workflows/deploy.yml` file on lines 15 and 16 respectively.
 
-   > Read more about GitHub Pages and Jupyter Book [here](https://jupyterbook.org/publish/gh-pages.html#automatically-host-your-book-with-github-actions), or using GitLab Pages [here](https://docs.gitlab.com/ee/user/project/pages/getting_started/pages_from_scratch.html).
-
-## Contributing
-
-We welcome and recognize all contributions. If you'd like to contribute to the project by providing feedback, identifying a bug or working on a new feature, check out the [contributing guide](CONTRIBUTING.md) to get started.
-
-You can see a list of current contributors in the [contributors tab](https://github.com/executablebooks/cookiecutter-jupyter-book/graphs/contributors).
-
-## Acknowledgements
-
-This template was inspired and made possible by the [Cookiecutter project](https://github.com/cookiecutter/cookiecutter) and the [Jupyter Book project](https://github.com/executablebooks/jupyter-book).
+   > Ver información adicional sobre GitHub pages [aquí](https://jupyterbook.org/publish/gh-pages.html#automatically-host-your-book-with-github-actions), o usando GitLab [aquí](https://docs.gitlab.com/ee/user/project/pages/getting_started/pages_from_scratch.html).

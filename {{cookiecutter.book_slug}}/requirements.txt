@@ -1,4 +1,6 @@
 jupyter-book
+cookiecutter
 matplotlib
 numpy
+pydicom
 {% if cookiecutter.include_ci == 'github' -%}ghp-import{% endif %}
