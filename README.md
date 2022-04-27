@@ -48,7 +48,7 @@ También es necesario que jupyter-book esté instalado a su vez
 2. Usar `cookiecutter-jupyter-book` para generar el libro (los valores por defecto se muestran entre corchetes `[]`):
 
 ```bash
-$ cookiecutter https://github.com/aotal/cookiecutter-jupyter-book.git
+$ cookiecutter git@github.com:aotal/cookiecutter-jupyter-book.git
 
 author_name [Captain Jupyter]: Tomas Beuzen
 github_or_gitlab_username [tomasbeuzen]:
