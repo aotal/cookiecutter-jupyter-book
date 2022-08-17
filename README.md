@@ -110,7 +110,7 @@ jupyter-book build my_book/
       $ git push -u origin master
       ```
 
-   4. Los comandos incluídos mediante cookiecutter (`my_book/.github/workflows/deploy.yml`) publicarán automatiamente el libro en `gh-pages`en la rama correspondiente una vez "pushed". Estará disponible en la dirección `https://<user>.github.io/<myonlinebook>/` después de unos minutos. puede ser necesario ir a `Settings` en el repositorio y bajo la cabecera **GitHub Pages** , elegir `gh-pages branch` desde la lista desplegable**Source**. para ver otros métodos de publicación consultar [Jupyter Book documentation](https://jupyterbook.org/intro.html).
+   4. Los comandos incluídos mediante cookiecutter (`my_book/.github/workflows/deploy.yml`) publicarán automatiamente el libro en `gh-pages`en la rama correspondiente una vez "pushed". Estará disponible en la dirección `https://<user>.github.io/<myonlinebook>/` después de unos minutos. Es necesario ir a `Settings` en el repositorio y bajo la cabecera **Pages** , elegir `gh-pages branch` desde la lista desplegable**Source**. para ver otros métodos de publicación consultar [Jupyter Book documentation](https://jupyterbook.org/intro.html).
 
 
    > Ver información adicional sobre GitHub pages [aquí](https://jupyterbook.org/publish/gh-pages.html#automatically-host-your-book-with-github-actions), o usando GitLab [aquí](https://docs.gitlab.com/ee/user/project/pages/getting_started/pages_from_scratch.html).
