@@ -38,23 +38,24 @@ my_book
 
 ## Usage
 
-1. Instalar [Cookiecutter](https://github.com/cookiecutter/cookiecutter/tree/1.7.2) antes de crear el primer libro:
+1. Instalar [Cookiecutter](https://github.com/cookiecutter/cookiecutter/tree/1.7.2) antes de crear el primer libro y jupyter-book. No obtante se puede utilizar el _requirements.txt_ del proyecto y así instalamos todas las dependencias de una vez en un _environtment_ propio.:
 
 ```bash
-$ pip install -U cookiecutter
+$ conda create --name book python=3.9 -y
+$ conda activate book
+$ pip install -r requirements.txt
 ```
-También es necesario que jupyter-book esté instalado a su vez
 
 2. Usar `cookiecutter-jupyter-book` para generar el libro (los valores por defecto se muestran entre corchetes `[]`):
 
 ```bash
 $ cookiecutter git@github.com:aotal/cookiecutter-jupyter-book.git
 
-author_name [Captain Jupyter]: Tomas Beuzen
-github_or_gitlab_username [tomasbeuzen]:
+author_name [Antonio Otal]: 
+github_or_gitlab_username [aotal]:
 book_name [My Book]:
 book_slug [my_book]:
-Breve descripción del libro [Este proyecto crea un jupyter-book simple.]: My first Jupyter Book!
+Breve descripción del libro [Este proyecto crea un jupyter-book simple.]: ¡Mi primer jupyter-book!
 version ['0.1.0']:
 Seleccionar licencia:
 1 - MIT license
@@ -75,7 +76,7 @@ Choose from 1, 2, 3 [1]:
 
 ```bash
 # pasos para crear en entorno virtual
-$ conda create --name mybook python=3.8 -y
+$ conda create --name mybook python=3.9 -y
 $ conda activate mybook
 ```
 
@@ -104,13 +105,11 @@ $ jupyter-book build my_book/
       $ git init
       $ git add .
       $ git commit -m "first commit"
-      $ git branch -M main
       $ git remote add origin git@github.com:<user>/<repository-name>.git
-      $ git push -u origin main
+      $ git push -u origin master
       ```
 
    4. Los comandos incluídos mediante cookiecutter (`my_book/.github/workflows/deploy.yml`) publicarán automatiamente el libro en `gh-pages`en la rama correspondiente una vez "pushed". Estará disponible en la dirección `https://<user>.github.io/<myonlinebook>/` después de unos minutos. puede ser necesario ir a `Settings` en el repositorio y bajo la cabecera **GitHub Pages** , elegir `gh-pages branch` desde la lista desplegable**Source**. para ver otros métodos de publicación consultar [Jupyter Book documentation](https://jupyterbook.org/intro.html).
 
-   > Note: by default, the GitHub Actions workflow file included with this cookiecutter builds the book with Ubuntu and Python 3.8. You can modify the OS/Python version for the build in the `.github/workflows/deploy.yml` file on lines 15 and 16 respectively.
 
    > Ver información adicional sobre GitHub pages [aquí](https://jupyterbook.org/publish/gh-pages.html#automatically-host-your-book-with-github-actions), o usando GitLab [aquí](https://docs.gitlab.com/ee/user/project/pages/getting_started/pages_from_scratch.html).
