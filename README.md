@@ -90,7 +90,6 @@ pip install -r requirements.txt
 4. Compilar el libro para crear los html:
 
 ```bash
-cd ..
 jupyter-book build my_book/
 ```
 
