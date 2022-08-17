@@ -50,7 +50,9 @@ $ pip install -r requirements.txt
 
 ```bash
 $ cookiecutter git@github.com:aotal/cookiecutter-jupyter-book.git
+```
 
+```bash
 author_name [Antonio Otal]: 
 github_or_gitlab_username [aotal]:
 book_name [My Book]:
