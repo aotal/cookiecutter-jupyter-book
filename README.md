@@ -41,15 +41,15 @@ my_book
 1. Instalar [Cookiecutter](https://github.com/cookiecutter/cookiecutter/tree/1.7.2) antes de crear el primer libro y jupyter-book. No obtante se puede utilizar el _requirements.txt_ del proyecto y así instalamos todas las dependencias de una vez en un _environtment_ propio.:
 
 ```bash
-$ conda create --name book python=3.9 -y
-$ conda activate book
-$ pip install -r requirements.txt
+conda create --name book python=3.9 -y
+conda activate book
+pip install -r requirements.txt
 ```
 
 2. Usar `cookiecutter-jupyter-book` para generar el libro (los valores por defecto se muestran entre corchetes `[]`):
 
 ```bash
-$ cookiecutter git@github.com:aotal/cookiecutter-jupyter-book.git
+cookiecutter git@github.com:aotal/cookiecutter-jupyter-book.git
 ```
 
 ```bash
@@ -78,20 +78,20 @@ Choose from 1, 2, 3 [1]:
 
 ```bash
 # pasos para crear en entorno virtual
-$ conda create --name mybook python=3.9 -y
-$ conda activate mybook
+conda create --name mybook python=3.9 -y
+conda activate mybook
 ```
 
 ```bash
-$ cd my_book
-$ pip install -r requirements.txt
+cd my_book
+pip install -r requirements.txt
 ```
 
 4. Compilar el libro para crear los html:
 
 ```bash
-$ cd ..
-$ jupyter-book build my_book/
+cd ..
+jupyter-book build my_book/
 ```
 
 5. Chequear el libro en `my_book/_build/html/index.html`.
